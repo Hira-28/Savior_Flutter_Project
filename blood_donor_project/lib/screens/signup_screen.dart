@@ -24,12 +24,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
   String? _selectedBloodGroup;
 
   final List<String> _countries = [
-    'United States', 'United Kingdom', 'Canada', 'Australia',
-    'India', 'Germany', 'France', 'Bangladesh',
+    'United States',
+    'United Kingdom',
+    'Canada',
+    'Australia',
+    'India',
+    'Germany',
+    'France',
+    'Bangladesh',
   ];
 
   final List<String> _bloodGroups = [
-    'A+', 'A−', 'B+', 'B−', 'AB+', 'AB−', 'O+', 'O−',
+    'A+',
+    'A−',
+    'B+',
+    'B−',
+    'AB+',
+    'AB−',
+    'O+',
+    'O−',
   ];
 
   // ── Google Sign-In ──────────────────────────────────────────────────────────
@@ -85,7 +98,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
   void _signUpWithFacebook() {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
-        content: Text('Add flutter_facebook_auth package & follow setup to enable'),
+        content: Text(
+          'Add flutter_facebook_auth package & follow setup to enable',
+        ),
         backgroundColor: Color(0xFF1877F2),
       ),
     );
@@ -105,9 +120,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text(_isDonor ? 'Registered as Donor successfully!' : 'Account created successfully!'),
+        content: Text(
+          _isDonor
+              ? 'Registered as Donor successfully!'
+              : 'Account created successfully!',
+        ),
         backgroundColor: const Color(0xFFE8304A),
       ),
+    );
+    // Navigate to sign-in screen after successful registration
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (_) => const SignInScreen()),
     );
   }
 
@@ -135,38 +159,60 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 // Back button
                 GestureDetector(
                   onTap: () => Navigator.maybePop(context),
-                  child: const Icon(Icons.arrow_back, size: 22, color: Colors.black87),
+                  child: const Icon(
+                    Icons.arrow_back,
+                    size: 22,
+                    color: Colors.black87,
+                  ),
                 ),
                 const SizedBox(height: 24),
 
                 // Title
                 const Text(
                   'Sign Up Your Account',
-                  style: TextStyle(fontSize: 26, fontWeight: FontWeight.w700, color: Colors.black87, height: 1.2),
+                  style: TextStyle(
+                    fontSize: 26,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.black87,
+                    height: 1.2,
+                  ),
                 ),
                 const SizedBox(height: 8),
                 Text(
                   'Create an account to find or become\na blood donor in your area',
-                  style: TextStyle(fontSize: 12.5, color: Colors.grey.shade500, height: 1.5),
+                  style: TextStyle(
+                    fontSize: 12.5,
+                    color: Colors.grey.shade500,
+                    height: 1.5,
+                  ),
                 ),
                 const SizedBox(height: 24),
 
                 // ── Donor Toggle ─────────────────────────────────────────────
                 AnimatedContainer(
                   duration: const Duration(milliseconds: 250),
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 12,
+                  ),
                   decoration: BoxDecoration(
-                    color: _isDonor ? const Color(0xFFFFECEE) : Colors.grey.shade100,
+                    color: _isDonor
+                        ? const Color(0xFFFFECEE)
+                        : Colors.grey.shade100,
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
-                      color: _isDonor ? const Color(0xFFE8304A).withOpacity(0.35) : Colors.transparent,
+                      color: _isDonor
+                          ? const Color(0xFFE8304A).withOpacity(0.35)
+                          : Colors.transparent,
                     ),
                   ),
                   child: Row(
                     children: [
                       Icon(
                         Icons.favorite,
-                        color: _isDonor ? const Color(0xFFE8304A) : Colors.grey.shade400,
+                        color: _isDonor
+                            ? const Color(0xFFE8304A)
+                            : Colors.grey.shade400,
                         size: 22,
                       ),
                       const SizedBox(width: 12),
@@ -179,12 +225,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600,
-                                color: _isDonor ? const Color(0xFFE8304A) : Colors.black87,
+                                color: _isDonor
+                                    ? const Color(0xFFE8304A)
+                                    : Colors.black87,
                               ),
                             ),
                             Text(
                               'Help save lives by donating blood',
-                              style: TextStyle(fontSize: 11.5, color: Colors.grey.shade500),
+                              style: TextStyle(
+                                fontSize: 11.5,
+                                color: Colors.grey.shade500,
+                              ),
                             ),
                           ],
                         ),
@@ -193,7 +244,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         value: _isDonor,
                         onChanged: (v) => setState(() => _isDonor = v),
                         activeColor: const Color(0xFFE8304A),
-                        activeTrackColor: const Color(0xFFE8304A).withOpacity(0.25),
+                        activeTrackColor: const Color(
+                          0xFFE8304A,
+                        ).withOpacity(0.25),
                       ),
                     ],
                   ),
@@ -206,7 +259,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 _buildTextField(
                   controller: _nameCtrl,
                   hint: 'e.g. David John',
-                  validator: (v) => v == null || v.isEmpty ? 'Enter your full name' : null,
+                  validator: (v) =>
+                      v == null || v.isEmpty ? 'Enter your full name' : null,
                 ),
                 const SizedBox(height: 16),
 
@@ -234,11 +288,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   obscureText: _hidePassword,
                   suffixIcon: IconButton(
                     icon: Icon(
-                      _hidePassword ? Icons.visibility_off_outlined : Icons.visibility_outlined,
+                      _hidePassword
+                          ? Icons.visibility_off_outlined
+                          : Icons.visibility_outlined,
                       color: Colors.grey.shade400,
                       size: 20,
                     ),
-                    onPressed: () => setState(() => _hidePassword = !_hidePassword),
+                    onPressed: () =>
+                        setState(() => _hidePassword = !_hidePassword),
                   ),
                   validator: (v) {
                     if (v == null || v.isEmpty) return 'Enter a password';
@@ -255,7 +312,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   controller: _phoneCtrl,
                   hint: 'e.g. +1 234 567 8900',
                   keyboardType: TextInputType.phone,
-                  validator: (v) => v == null || v.isEmpty ? 'Enter your phone number' : null,
+                  validator: (v) =>
+                      v == null || v.isEmpty ? 'Enter your phone number' : null,
                 ),
                 const SizedBox(height: 16),
 
@@ -279,14 +337,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       height: 20,
                       child: Checkbox(
                         value: _agreedToTerms,
-                        onChanged: (v) => setState(() => _agreedToTerms = v ?? false),
+                        onChanged: (v) =>
+                            setState(() => _agreedToTerms = v ?? false),
                         activeColor: const Color(0xFFE8304A),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4),
+                        ),
                         side: BorderSide(color: Colors.grey.shade400),
                       ),
                     ),
                     const SizedBox(width: 10),
-                    Text('I agree to the ', style: TextStyle(fontSize: 13, color: Colors.grey.shade600)),
+                    Text(
+                      'I agree to the ',
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: Colors.grey.shade600,
+                      ),
+                    ),
                     GestureDetector(
                       onTap: () {},
                       child: const Text(
@@ -305,21 +372,32 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 const SizedBox(height: 24),
 
                 // ── Sign Up Button ───────────────────────────────────────────
-                _buildPrimaryButton(label: 'Sign Up', onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => const SignInScreen()),
-                    ), loading: _loading),
+                _buildPrimaryButton(
+                  label: 'Sign Up',
+                  onTap: _signUp,
+                  loading: _loading,
+                ),
                 const SizedBox(height: 22),
 
                 // ── Divider ──────────────────────────────────────────────────
                 Row(
                   children: [
-                    Expanded(child: Divider(color: Colors.grey.shade300, thickness: 1)),
+                    Expanded(
+                      child: Divider(color: Colors.grey.shade300, thickness: 1),
+                    ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 12),
-                      child: Text('Or continue with', style: TextStyle(color: Colors.grey.shade500, fontSize: 12)),
+                      child: Text(
+                        'Or continue with',
+                        style: TextStyle(
+                          color: Colors.grey.shade500,
+                          fontSize: 12,
+                        ),
+                      ),
                     ),
-                    Expanded(child: Divider(color: Colors.grey.shade300, thickness: 1)),
+                    Expanded(
+                      child: Divider(color: Colors.grey.shade300, thickness: 1),
+                    ),
                   ],
                 ),
                 const SizedBox(height: 20),
@@ -358,11 +436,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     child: RichText(
                       text: TextSpan(
                         text: 'Already Have An Account? ',
-                        style: TextStyle(color: Colors.grey.shade500, fontSize: 13),
+                        style: TextStyle(
+                          color: Colors.grey.shade500,
+                          fontSize: 13,
+                        ),
                         children: const [
                           TextSpan(
                             text: 'Sign In',
-                            style: TextStyle(color: Color(0xFFE8304A), fontWeight: FontWeight.w600),
+                            style: TextStyle(
+                              color: Color(0xFFE8304A),
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                         ],
                       ),
@@ -383,7 +467,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget _label(String text) {
     return Text(
       text,
-      style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: Colors.black87),
+      style: const TextStyle(
+        fontSize: 13,
+        fontWeight: FontWeight.w600,
+        color: Colors.black87,
+      ),
     );
   }
 
@@ -407,9 +495,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
         filled: true,
         fillColor: Colors.grey.shade100,
         suffixIcon: suffixIcon,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide.none),
-        enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide.none),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 18,
+          vertical: 16,
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide.none,
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide.none,
+        ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
           borderSide: const BorderSide(color: Color(0xFFE8304A), width: 1.5),
@@ -429,9 +526,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget _buildBloodGroupDropdown() {
     return DropdownButtonFormField<String>(
       value: _selectedBloodGroup,
-      hint: Text('Select blood group', style: TextStyle(color: Colors.grey.shade400, fontSize: 14)),
+      hint: Text(
+        'Select blood group',
+        style: TextStyle(color: Colors.grey.shade400, fontSize: 14),
+      ),
       onChanged: (v) => setState(() => _selectedBloodGroup = v),
-      validator: _isDonor ? (v) => v == null ? 'Blood group is required for donors' : null : null,
+      validator: _isDonor
+          ? (v) => v == null ? 'Blood group is required for donors' : null
+          : null,
       items: _bloodGroups.map((bg) {
         return DropdownMenuItem(
           value: bg,
@@ -440,16 +542,26 @@ class _SignUpScreenState extends State<SignUpScreen> {
               Container(
                 width: 30,
                 height: 30,
-                decoration: const BoxDecoration(color: Color(0xFFFFECEE), shape: BoxShape.circle),
+                decoration: const BoxDecoration(
+                  color: Color(0xFFFFECEE),
+                  shape: BoxShape.circle,
+                ),
                 child: Center(
                   child: Text(
                     bg,
-                    style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w700, color: Color(0xFFE8304A)),
+                    style: const TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xFFE8304A),
+                    ),
                   ),
                 ),
               ),
               const SizedBox(width: 10),
-              Text(bg, style: const TextStyle(fontSize: 14, color: Colors.black87)),
+              Text(
+                bg,
+                style: const TextStyle(fontSize: 14, color: Colors.black87),
+              ),
             ],
           ),
         );
@@ -457,9 +569,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
       decoration: InputDecoration(
         filled: true,
         fillColor: Colors.grey.shade100,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide.none),
-        enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide.none),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 18,
+          vertical: 16,
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide.none,
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide.none,
+        ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
           borderSide: const BorderSide(color: Color(0xFFE8304A), width: 1.5),
@@ -479,14 +600,28 @@ class _SignUpScreenState extends State<SignUpScreen> {
       value: _selectedCountry,
       onChanged: (v) => setState(() => _selectedCountry = v),
       items: _countries
-          .map((c) => DropdownMenuItem(value: c, child: Text(c, style: const TextStyle(fontSize: 14))))
+          .map(
+            (c) => DropdownMenuItem(
+              value: c,
+              child: Text(c, style: const TextStyle(fontSize: 14)),
+            ),
+          )
           .toList(),
       decoration: InputDecoration(
         filled: true,
         fillColor: Colors.grey.shade100,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide.none),
-        enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide.none),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 18,
+          vertical: 16,
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide.none,
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide.none,
+        ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
           borderSide: const BorderSide(color: Color(0xFFE8304A), width: 1.5),
@@ -498,7 +633,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
-  Widget _buildPrimaryButton({required String label, required VoidCallback onTap, bool loading = false}) {
+  Widget _buildPrimaryButton({
+    required String label,
+    required VoidCallback onTap,
+    bool loading = false,
+  }) {
     return SizedBox(
       width: double.infinity,
       height: 52,
@@ -508,11 +647,28 @@ class _SignUpScreenState extends State<SignUpScreen> {
           backgroundColor: const Color(0xFFE8304A),
           disabledBackgroundColor: const Color(0xFFE8304A).withOpacity(0.7),
           elevation: 0,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
         ),
         child: loading
-            ? const SizedBox(width: 22, height: 22, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2.5))
-            : Text(label, style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600, color: Colors.white, letterSpacing: 0.3)),
+            ? const SizedBox(
+                width: 22,
+                height: 22,
+                child: CircularProgressIndicator(
+                  color: Colors.white,
+                  strokeWidth: 2.5,
+                ),
+              )
+            : Text(
+                label,
+                style: const TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                  letterSpacing: 0.3,
+                ),
+              ),
       ),
     );
   }
@@ -531,14 +687,34 @@ class _SignUpScreenState extends State<SignUpScreen> {
           borderRadius: BorderRadius.circular(10),
           border: Border.all(color: Colors.grey.shade200, width: 1.5),
           color: Colors.white,
-          boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.04), blurRadius: 8, offset: const Offset(0, 2))],
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.04),
+              blurRadius: 8,
+              offset: const Offset(0, 2),
+            ),
+          ],
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(icon, style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800, color: color)),
+            Text(
+              icon,
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w800,
+                color: color,
+              ),
+            ),
             const SizedBox(width: 8),
-            Text(label, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: Colors.black87)),
+            Text(
+              label,
+              style: const TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.w600,
+                color: Colors.black87,
+              ),
+            ),
           ],
         ),
       ),
