@@ -305,7 +305,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 const SizedBox(height: 24),
 
                 // ── Sign Up Button ───────────────────────────────────────────
-                _buildPrimaryButton(label: 'Sign Up', onTap: _signUp, loading: _loading),
+                _buildPrimaryButton(label: 'Sign Up', onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => const SignInScreen()),
+                    ), loading: _loading),
                 const SizedBox(height: 22),
 
                 // ── Divider ──────────────────────────────────────────────────
