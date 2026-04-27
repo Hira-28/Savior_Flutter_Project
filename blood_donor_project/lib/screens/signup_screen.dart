@@ -312,8 +312,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   controller: _phoneCtrl,
                   hint: 'e.g. +1 234 567 8900',
                   keyboardType: TextInputType.phone,
-                  validator: (v) =>
-                      v == null || v.isEmpty ? 'Enter your phone number' : null,
+                  validator: (v) {
+                    if (v == null || v.isEmpty) {
+                      return 'Enter your phone number';
+                    }
+
+                    // Remove spaces
+                    String value = v.replaceAll(' ', '');
+
+                    // Basic validation: must be digits and length 10–15
+                    final phoneRegex = RegExp(r'^\+?[0-9]{10,15}$');
+
+                    if (!phoneRegex.hasMatch(value)) {
+                      return 'Enter a valid phone number';
+                    }
+
+                    return null;
+                  },
                 ),
                 const SizedBox(height: 16),
 

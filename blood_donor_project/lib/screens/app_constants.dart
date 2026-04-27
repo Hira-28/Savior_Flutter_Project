@@ -13,14 +13,23 @@ class AppColors {
   static const Color mapBlock = Color(0xFFD8E8C8);
 }
 
-const List<String> bloodTypes = ['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-'];
+const List<String> bloodTypes = [
+  'A+',
+  'A-',
+  'B+',
+  'B-',
+  'O+',
+  'O-',
+  'AB+',
+  'AB-',
+];
 
 final List<Map<String, dynamic>> donorsList = [
   {
     'id': 1,
-    'name': 'Oliver James',
+    'name': 'Mehedi Hasan',
     'blood': 'B+',
-    'location': 'Washington, D.C.',
+    'location': 'Savar, Dhaka',
     'time': '5 Min Ago',
     'desc': 'Need urgent donor for cardiac surgery scheduled tomorrow morning.',
     'available': true,
@@ -31,9 +40,9 @@ final List<Map<String, dynamic>> donorsList = [
   },
   {
     'id': 2,
-    'name': 'Benjamin Jack',
+    'name': 'Enamul Haque',
     'blood': 'A-',
-    'location': 'Florida',
+    'location': 'Mirpur, Dhaka',
     'time': '12 Min Ago',
     'desc': 'Patient undergoing chemotherapy requires regular transfusions.',
     'available': true,
@@ -44,9 +53,9 @@ final List<Map<String, dynamic>> donorsList = [
   },
   {
     'id': 3,
-    'name': 'Thomas Carter',
+    'name': 'Somoy',
     'blood': 'O+',
-    'location': 'New York',
+    'location': 'Mirpur-2, Dhaka',
     'time': '30 Min Ago',
     'desc': 'Emergency transfusion needed post-accident at NYC General.',
     'available': false,
@@ -57,11 +66,12 @@ final List<Map<String, dynamic>> donorsList = [
   },
   {
     'id': 4,
-    'name': 'Maria Santos',
+    'name': 'Wahid Tousif',
     'blood': 'AB+',
-    'location': 'California',
+    'location': 'Uttara, Dhaka',
     'time': '1 Hr Ago',
-    'desc': 'Seeking compatible donor for planned surgical procedure next week.',
+    'desc':
+        'Seeking compatible donor for planned surgical procedure next week.',
     'available': true,
     'age': 29,
     'phone': '+1 415-555-0167',
@@ -70,9 +80,9 @@ final List<Map<String, dynamic>> donorsList = [
   },
   {
     'id': 5,
-    'name': 'David Park',
+    'name': 'Tanjir Anik',
     'blood': 'B-',
-    'location': 'Texas',
+    'location': 'Dhanmondi, Dhaka',
     'time': '2 Hrs Ago',
     'desc': 'Rare blood type needed urgently. Hospital stocks depleted.',
     'available': true,
@@ -86,8 +96,8 @@ final List<Map<String, dynamic>> donorsList = [
 final List<Map<String, dynamic>> bloodBanksList = [
   {
     'id': 1,
-    'name': 'American Red Cross',
-    'location': 'Washington, D.C.',
+    'name': 'Popular Blood Bank',
+    'location': 'Dhaka, Bangladesh',
     'rating': 5.0,
     'hours': '8AM – 8PM',
     'phone': '+1 800-733-2767',
@@ -95,12 +105,12 @@ final List<Map<String, dynamic>> bloodBanksList = [
     'reviews': 128,
     'emoji': '🏥',
     'desc':
-        'The American Red Cross is the premier blood donation organization in the United States, serving hospitals and patients across the country with safe and reliable blood supplies.',
+        'Popular Blood Bank is a leading blood donation center in Dhaka, providing safe and reliable blood products to hospitals across Bangladesh. They have a strong commitment to community service and regularly organize blood drives.',
   },
   {
     'id': 2,
-    'name': 'Vitalant',
-    'location': 'Scottsdale, Arizona',
+    'name': 'Islamic Blood Bank',
+    'location': 'Dhaka, Bangladesh',
     'rating': 4.9,
     'hours': '7AM – 7PM',
     'phone': '+1 877-258-4825',
@@ -108,12 +118,12 @@ final List<Map<String, dynamic>> bloodBanksList = [
     'reviews': 96,
     'emoji': '🏨',
     'desc':
-        'Vitalant is one of the nation\'s largest nonprofit blood suppliers, providing comprehensive transfusion medicine services to over 900 hospitals across 40 states.',
+        'Islamic Blood Bank is a trusted blood donation center in Dhaka, committed to providing high-quality blood products and services to hospitals and patients across Bangladesh.',
   },
   {
     'id': 3,
-    'name': 'New York Blood Center',
-    'location': 'New York',
+    'name': 'Lab Aid Blood Center',
+    'location': 'Dhaka, Bangladesh',
     'rating': 3.5,
     'hours': '9AM – 6PM',
     'phone': '+1 800-933-2566',
@@ -121,12 +131,12 @@ final List<Map<String, dynamic>> bloodBanksList = [
     'reviews': 256,
     'emoji': '🏗️',
     'desc':
-        'New York Blood Center is one of the largest independent, nonprofit blood collection and distribution organizations in the United States, serving more than 200 hospitals.',
+        'Lab Aid Blood Center is a reliable blood donation center in Dhaka, providing safe and efficient blood collection and distribution services to hospitals across Bangladesh.',
   },
   {
     'id': 4,
-    'name': 'Center Bloodcare',
-    'location': 'Bedford, Texas',
+    'name': 'Bardem Blood Center',
+    'location': 'Dhaka, Bangladesh',
     'rating': 4.5,
     'hours': '8AM – 5PM',
     'phone': '+1 817-281-5433',
@@ -134,12 +144,12 @@ final List<Map<String, dynamic>> bloodBanksList = [
     'reviews': 74,
     'emoji': '🏢',
     'desc':
-        'Carter BloodCare is a nonprofit community blood center serving hospitals throughout North, Central, and East Texas with a full range of blood products and services.',
+        'Bardem Blood Center is a reputable blood donation center in Dhaka, providing safe and efficient blood collection and distribution services to hospitals across Bangladesh.',
   },
   {
     'id': 5,
-    'name': 'Memorial Blood Centers',
-    'location': 'St. Paul, Minnesota',
+    'name': 'Square Hospital Blood Bank',
+    'location': 'Dhaka, Bangladesh',
     'rating': 5.0,
     'hours': '7AM – 9PM',
     'phone': '+1 800-847-6919',
@@ -147,14 +157,14 @@ final List<Map<String, dynamic>> bloodBanksList = [
     'reviews': 189,
     'emoji': '🏪',
     'desc':
-        'Memorial Blood Centers is a nonprofit organization committed to ensuring an adequate supply of blood products for patients in need throughout Minnesota and surrounding regions.',
+        'Square Hospital Blood Bank is a trusted blood donation center in Dhaka, committed to providing high-quality blood products and services to hospitals and patients across Bangladesh.',
   },
 ];
 
 final List<Map<String, dynamic>> inboxList = [
   {
     'id': 1,
-    'name': 'Michel Lucas',
+    'name': 'Mehedi Hasan',
     'msg': 'I can donate tomorrow morning, is that ok?',
     'time': '9:31',
     'unread': 2,
@@ -163,7 +173,7 @@ final List<Map<String, dynamic>> inboxList = [
   },
   {
     'id': 2,
-    'name': 'Liam Elijah',
+    'name': 'Enamul Haque',
     'msg': 'Thank you for your quick response!',
     'time': '9:28',
     'unread': 1,
@@ -172,7 +182,7 @@ final List<Map<String, dynamic>> inboxList = [
   },
   {
     'id': 3,
-    'name': 'Daniel Henry',
+    'name': 'Somoy',
     'msg': 'I am available this weekend for donation.',
     'time': '9:15',
     'unread': 0,
@@ -181,7 +191,7 @@ final List<Map<String, dynamic>> inboxList = [
   },
   {
     'id': 4,
-    'name': 'Benjamin Jack',
+    'name': 'Sadman Rafi',
     'msg': 'The hospital confirmed my appointment.',
     'time': '8:52',
     'unread': 0,
@@ -190,7 +200,7 @@ final List<Map<String, dynamic>> inboxList = [
   },
   {
     'id': 5,
-    'name': 'Archer Noah',
+    'name': 'Wahid Tousif',
     'msg': 'Can we reschedule to next Tuesday?',
     'time': '8:30',
     'unread': 0,
@@ -199,7 +209,7 @@ final List<Map<String, dynamic>> inboxList = [
   },
   {
     'id': 6,
-    'name': 'Oliver James',
+    'name': 'Tanjir Anik',
     'msg': 'I need a donor urgently, please help!',
     'time': '7:45',
     'unread': 3,
@@ -208,7 +218,7 @@ final List<Map<String, dynamic>> inboxList = [
   },
   {
     'id': 7,
-    'name': 'Luke Gariel',
+    'name': 'Afjal Hossain',
     'msg': 'Thank you for saving my life!',
     'time': 'Yesterday',
     'unread': 0,
@@ -217,7 +227,7 @@ final List<Map<String, dynamic>> inboxList = [
   },
   {
     'id': 8,
-    'name': 'Thomas Carter',
+    'name': 'Hafizur Rahman',
     'msg': 'My blood type is O+ and I am ready.',
     'time': 'Yesterday',
     'unread': 0,
@@ -230,7 +240,7 @@ final List<Map<String, dynamic>> notificationsList = [
   {
     'icon': '💧',
     'title': 'New Donor Match!',
-    'desc': 'Michel Lucas (O+) is available near you.',
+    'desc': 'Mehedi Hasan (O+) is available near you.',
     'time': '5 min ago',
     'read': false,
     'type': 'match',
@@ -238,7 +248,7 @@ final List<Map<String, dynamic>> notificationsList = [
   {
     'icon': '📋',
     'title': 'Blood Request',
-    'desc': 'Urgent B+ needed at St. Mary Hospital.',
+    'desc': 'Urgent B+ needed at Square Hospital.',
     'time': '15 min ago',
     'read': false,
     'type': 'request',
@@ -262,7 +272,7 @@ final List<Map<String, dynamic>> notificationsList = [
   {
     'icon': 'ℹ️',
     'title': 'Blood Bank Open',
-    'desc': 'American Red Cross is open until 8PM today.',
+    'desc': 'Square Hospital Blood Bank is open until 8PM today.',
     'time': 'Yesterday',
     'read': true,
     'type': 'info',
@@ -270,7 +280,7 @@ final List<Map<String, dynamic>> notificationsList = [
   {
     'icon': '💧',
     'title': 'New Donor Match!',
-    'desc': 'Sarah K. (A-) is 1.2 km away from you.',
+    'desc': 'Afjal (A-) is 1.2 km away from you.',
     'time': '2 days ago',
     'read': true,
     'type': 'match',
@@ -280,30 +290,30 @@ final List<Map<String, dynamic>> notificationsList = [
 final List<Map<String, dynamic>> bloodRequestsList = [
   {
     'id': 1,
-    'patient': 'Alice Morgan',
+    'patient': 'Mehedi Hasan',
     'blood': 'A+',
     'units': 2,
-    'location': 'Boston, MA',
+    'location': 'Savar, Dhaka',
     'date': '2025-01-20',
     'status': 'pending',
     'urgency': 'urgent',
   },
   {
     'id': 2,
-    'patient': 'John Smith',
+    'patient': 'Enamul Haque',
     'blood': 'O-',
     'units': 1,
-    'location': 'Chicago, IL',
+    'location': 'Mirpur, Dhaka',
     'date': '2025-01-19',
     'status': 'fulfilled',
     'urgency': 'normal',
   },
   {
     'id': 3,
-    'patient': 'Emma Wilson',
+    'patient': 'Somoy',
     'blood': 'B+',
     'units': 3,
-    'location': 'Houston, TX',
+    'location': 'Mirpur-2, Dhaka',
     'date': '2025-01-18',
     'status': 'pending',
     'urgency': 'critical',
@@ -312,16 +322,48 @@ final List<Map<String, dynamic>> bloodRequestsList = [
 
 final Map<int, List<Map<String, dynamic>>> chatMessages = {
   1: [
-    {'from': 'them', 'text': 'Hello! I saw your blood request. I am O+ and can help.', 'time': '9:25'},
-    {'from': 'me', 'text': 'Thank you so much! When are you available?', 'time': '9:26'},
-    {'from': 'them', 'text': 'I can donate tomorrow morning, is that ok?', 'time': '9:27'},
-    {'from': 'me', 'text': 'Yes that works perfectly! The hospital is at 5th Ave.', 'time': '9:28'},
-    {'from': 'them', 'text': 'Great, I will be there at 9AM sharp.', 'time': '9:31'},
+    {
+      'from': 'them',
+      'text': 'Hello! I saw your blood request. I am O+ and can help.',
+      'time': '9:25',
+    },
+    {
+      'from': 'me',
+      'text': 'Thank you so much! When are you available?',
+      'time': '9:26',
+    },
+    {
+      'from': 'them',
+      'text': 'I can donate tomorrow morning, is that ok?',
+      'time': '9:27',
+    },
+    {
+      'from': 'me',
+      'text': 'Yes that works perfectly! The hospital is at 5th Ave.',
+      'time': '9:28',
+    },
+    {
+      'from': 'them',
+      'text': 'Great, I will be there at 9AM sharp.',
+      'time': '9:31',
+    },
   ],
   6: [
-    {'from': 'them', 'text': 'I need a donor urgently, please help!', 'time': '7:40'},
-    {'from': 'me', 'text': 'I saw your request. What blood type do you need?', 'time': '7:42'},
+    {
+      'from': 'them',
+      'text': 'I need a donor urgently, please help!',
+      'time': '7:40',
+    },
+    {
+      'from': 'me',
+      'text': 'I saw your request. What blood type do you need?',
+      'time': '7:42',
+    },
     {'from': 'them', 'text': 'B+ blood type, very urgent!', 'time': '7:43'},
-    {'from': 'me', 'text': 'I am B+. Share the hospital details please.', 'time': '7:45'},
+    {
+      'from': 'me',
+      'text': 'I am B+. Share the hospital details please.',
+      'time': '7:45',
+    },
   ],
 };

@@ -301,7 +301,7 @@ class ProfileScreen extends StatelessWidget {
                 ),
                 child: const Center(
                   child: Text(
-                    'JD',
+                    'TA',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 32,
@@ -328,13 +328,13 @@ class ProfileScreen extends StatelessWidget {
           ),
           const SizedBox(height: 14),
           const Text(
-            'John Doe',
+            'Tanjir Anik',
             style: TextStyle(
                 fontSize: 20, fontWeight: FontWeight.w800, color: AppColors.textDark),
           ),
           const SizedBox(height: 4),
           const Text(
-            'johndoe@email.com',
+            'anik@gmail.com',
             style: TextStyle(fontSize: 13, color: AppColors.textGrey),
           ),
           const SizedBox(height: 12),

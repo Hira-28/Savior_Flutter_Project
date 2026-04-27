@@ -282,7 +282,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const SizedBox(height: 12),
                 const Text(
-                  'John Doe',
+                  'Tanjir Anik',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -345,7 +345,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Padding(
             padding: const EdgeInsets.all(16),
             child: Text(
-              'BloodConnect v1.0.0',
+              'Saviour v1.0.0',
               style: TextStyle(fontSize: 12, color: Colors.grey.shade400),
             ),
           ),
@@ -360,24 +360,31 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          // ── Hamburger Menu ──────────────────────────────────────────
           Builder(
-            builder: (context) => GestureDetector(
-              onTap: () => Scaffold.of(context).openDrawer(),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  _menuLine(24),
-                  const SizedBox(height: 5),
-                  _menuLine(16),
-                  const SizedBox(height: 5),
-                  _menuLine(20),
-                ],
+            builder: (ctx) => GestureDetector(
+              behavior: HitTestBehavior.opaque, // ← fixes missed taps
+              onTap: () => Scaffold.of(ctx).openDrawer(),
+              child: Padding(
+                padding: const EdgeInsets.all(4), // ← larger tap area
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    _menuLine(24),
+                    const SizedBox(height: 5),
+                    _menuLine(16),
+                    const SizedBox(height: 5),
+                    _menuLine(20),
+                  ],
+                ),
               ),
             ),
           ),
 
+          // ── Title ───────────────────────────────────────────────────
           const Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
                 'Good Morning 👋',
@@ -394,7 +401,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
 
-          // ✅ EMPTY SPACE to keep alignment same
+          // ── Spacer to balance layout ────────────────────────────────
           const SizedBox(width: 48, height: 48),
         ],
       ),

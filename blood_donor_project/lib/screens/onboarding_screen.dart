@@ -16,13 +16,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   final List<Map<String, String>> data = [
     {
       "title": "Locate Donors Around You",
-      "desc": "Lorem ipsum is simply dummy text of the printing and typesetting",
+      "desc":
+          "Find nearby blood donors and connect with them for life-saving support.",
       "image": "assets/signin.jpg",
     },
     {
-      "title": "Welcome RedFlow:\nNearby City",
-      "desc": "Lorem ipsum is simply dummy text of the printing and typesetting",
-      "image": "assets/signin.jpg",
+      "title": "Welcome to Saviour",
+      "desc":
+          "Find nearby blood donors and connect with them for life-saving support.",
+      "image": "assets/Saviour_icon.png",
     },
   ];
 
@@ -99,7 +101,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           backgroundColor: Colors.red,
                           mini: true,
                           elevation: 0,
-                          child: const Icon(Icons.arrow_forward, color: Colors.white),
+                          child: const Icon(
+                            Icons.arrow_forward,
+                            color: Colors.white,
+                          ),
                         ),
                 ],
               ),
@@ -122,7 +127,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
-                boxShadow: const [BoxShadow(color: Colors.black12, blurRadius: 10)],
+                boxShadow: const [
+                  BoxShadow(color: Colors.black12, blurRadius: 10),
+                ],
               ),
               padding: const EdgeInsets.all(20),
               child: Column(
@@ -148,9 +155,20 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
                   if (index == 1) ...[
                     const SizedBox(height: 20),
-                    _button("Sign Up", Colors.red, Colors.white, onTap: goToSignUp),
+                    _button(
+                      "Sign Up",
+                      Colors.red,
+                      Colors.white,
+                      onTap: goToSignUp,
+                    ),
                     const SizedBox(height: 10),
-                    _button("Sign In", Colors.white, Colors.red, border: true, onTap: goToSignIn),
+                    _button(
+                      "Sign In",
+                      Colors.white,
+                      Colors.red,
+                      border: true,
+                      onTap: goToSignIn,
+                    ),
                   ],
                 ],
               ),
@@ -178,7 +196,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           foregroundColor: fg,
           elevation: 0,
           side: border ? const BorderSide(color: Colors.red) : null,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
         ),
         child: Text(text, style: const TextStyle(fontWeight: FontWeight.w600)),
       ),

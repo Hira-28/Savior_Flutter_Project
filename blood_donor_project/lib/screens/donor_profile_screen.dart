@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'home_screen.dart';
 import 'inbox_screen.dart';
 import 'notifications_screen.dart';
-import 'profile_screen.dart';
+import 'blood_request_screen.dart';
 
 class DonorProfileScreen extends StatefulWidget {
   final Map<String, dynamic>? donor;
@@ -14,7 +14,7 @@ class DonorProfileScreen extends StatefulWidget {
 }
 
 class _DonorProfileScreenState extends State<DonorProfileScreen> {
-  final int _currentNav = 0; // Home is the closest context for donor profile
+  final int _currentNav = 0;
 
   void _navigateBottomNav(int index) {
     if (index == _currentNav) return;
@@ -43,7 +43,7 @@ class _DonorProfileScreenState extends State<DonorProfileScreen> {
       case 3:
         Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (_) => const ProfileScreen()),
+          MaterialPageRoute(builder: (_) => const DonorProfileScreen()),
           (route) => false,
         );
         break;
@@ -52,8 +52,8 @@ class _DonorProfileScreenState extends State<DonorProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final name = widget.donor?['name'] ?? 'Benjamin Jack';
-    final location = widget.donor?['location'] ?? 'Georgia';
+    final name = widget.donor?['name'] ?? 'Tanjir Anik';
+    final location = widget.donor?['location'] ?? 'Dhanmondi, Dhaka';
     final blood = widget.donor?['blood'] ?? 'A−';
     final donated = widget.donor?['donated'] ?? 5;
     final saved = widget.donor?['saved'] ?? 6;
@@ -89,16 +89,16 @@ class _DonorProfileScreenState extends State<DonorProfileScreen> {
       child: Row(
         children: [
           GestureDetector(
-            onTap: () => Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(builder: (_) => const HomeScreen()),
-              (route) => false,
+            behavior: HitTestBehavior.opaque,   // ← fixes unreliable back tap
+            onTap: () => Navigator.pop(context), // ← just pop, not pushAndRemoveUntil
+            child: const Padding(
+              padding: EdgeInsets.all(4),
+              child: Icon(Icons.arrow_back_ios_new, size: 20, color: Colors.black87),
             ),
-            child: const Icon(Icons.arrow_back_ios_new, size: 20, color: Colors.black87),
           ),
           const Expanded(
             child: Text(
-              'Profile',
+              'Donor Profile',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 17,
@@ -107,7 +107,7 @@ class _DonorProfileScreenState extends State<DonorProfileScreen> {
               ),
             ),
           ),
-          const SizedBox(width: 20),
+          const SizedBox(width: 28),
         ],
       ),
     );
@@ -219,9 +219,8 @@ class _DonorProfileScreenState extends State<DonorProfileScreen> {
     );
   }
 
-  Widget _statDivider() {
-    return Container(width: 1, height: 36, color: Colors.grey.shade200);
-  }
+  Widget _statDivider() =>
+      Container(width: 1, height: 36, color: Colors.grey.shade200);
 
   // ── Map Section ────────────────────────────────────────────────────────────
   Widget _buildMapSection(String location) {
@@ -263,9 +262,7 @@ class _DonorProfileScreenState extends State<DonorProfileScreen> {
                       children: [
                         Container(
                           padding: const EdgeInsets.symmetric(
-                            horizontal: 10,
-                            vertical: 6,
-                          ),
+                              horizontal: 10, vertical: 6),
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(8),
@@ -279,17 +276,12 @@ class _DonorProfileScreenState extends State<DonorProfileScreen> {
                           child: Text(
                             location,
                             style: const TextStyle(
-                              fontSize: 11,
-                              fontWeight: FontWeight.w600,
-                            ),
+                                fontSize: 11, fontWeight: FontWeight.w600),
                           ),
                         ),
                         const SizedBox(height: 4),
-                        const Icon(
-                          Icons.location_on,
-                          color: Color(0xFFE8304A),
-                          size: 36,
-                        ),
+                        const Icon(Icons.location_on,
+                            color: Color(0xFFE8304A), size: 36),
                       ],
                     ),
                   ),
@@ -331,9 +323,7 @@ class _DonorProfileScreenState extends State<DonorProfileScreen> {
               width: 36,
               height: 36,
               decoration: const BoxDecoration(
-                color: Color(0xFFFFECEE),
-                shape: BoxShape.circle,
-              ),
+                  color: Color(0xFFFFECEE), shape: BoxShape.circle),
               child: Icon(icon, color: const Color(0xFFE8304A), size: 18),
             ),
             const SizedBox(width: 10),
@@ -341,18 +331,13 @@ class _DonorProfileScreenState extends State<DonorProfileScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    label,
-                    style: TextStyle(fontSize: 10, color: Colors.grey.shade400),
-                  ),
-                  Text(
-                    value,
-                    style: const TextStyle(
-                      fontSize: 12.5,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.black87,
-                    ),
-                  ),
+                  Text(label,
+                      style: TextStyle(fontSize: 10, color: Colors.grey.shade400)),
+                  Text(value,
+                      style: const TextStyle(
+                          fontSize: 12.5,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.black87)),
                 ],
               ),
             ),
@@ -378,6 +363,7 @@ class _DonorProfileScreenState extends State<DonorProfileScreen> {
       ),
       child: Row(
         children: [
+          // ── Call Button ──────────────────────────────────────────────
           Expanded(
             child: SizedBox(
               height: 52,
@@ -386,42 +372,34 @@ class _DonorProfileScreenState extends State<DonorProfileScreen> {
                 icon: const Icon(Icons.call, size: 18, color: Colors.white),
                 label: const Text(
                   'Call',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white,
-                  ),
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600, color: Colors.white),
                 ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFFE8304A),
                   elevation: 0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(14),
-                  ),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
                 ),
               ),
             ),
           ),
           const SizedBox(width: 14),
+          // ── Request Button → navigates to PostRequestScreen ──────────
           Expanded(
             child: SizedBox(
               height: 52,
               child: OutlinedButton.icon(
-                onPressed: () => _showRequestDialog(context),
+                onPressed: () => Navigator.push(   // ← actually navigates now
+                  context,
+                  MaterialPageRoute(builder: (_) => const PostRequestScreen()),
+                ),
                 icon: const Icon(Icons.water_drop, size: 18, color: Color(0xFFE8304A)),
                 label: const Text(
                   'Request',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w600,
-                    color: Color(0xFFE8304A),
-                  ),
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600, color: Color(0xFFE8304A)),
                 ),
                 style: OutlinedButton.styleFrom(
                   side: const BorderSide(color: Color(0xFFE8304A), width: 1.5),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(14),
-                  ),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
                 ),
               ),
             ),
@@ -444,15 +422,14 @@ class _DonorProfileScreenState extends State<DonorProfileScreen> {
               width: 64,
               height: 64,
               decoration: const BoxDecoration(
-                color: Color(0xFFFFECEE),
-                shape: BoxShape.circle,
-              ),
+                  color: Color(0xFFFFECEE), shape: BoxShape.circle),
               child: const Icon(Icons.call, color: Color(0xFFE8304A), size: 32),
             ),
             const SizedBox(height: 12),
-            const Text(
-              'Connect with this donor via phone call?',
+            Text(
+              'Connect with ${widget.donor?['name'] ?? 'this donor'} via phone call?',
               textAlign: TextAlign.center,
+              style: const TextStyle(color: Colors.black54),
             ),
           ],
         ),
@@ -465,60 +442,10 @@ class _DonorProfileScreenState extends State<DonorProfileScreen> {
             onPressed: () => Navigator.pop(context),
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color(0xFFE8304A),
+              elevation: 0,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             ),
             child: const Text('Call Now', style: TextStyle(color: Colors.white)),
-          ),
-        ],
-      ),
-    );
-  }
-
-  void _showRequestDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (_) => AlertDialog(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        title: const Text('Send Request', style: TextStyle(fontWeight: FontWeight.w700)),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Container(
-              width: 64,
-              height: 64,
-              decoration: const BoxDecoration(
-                color: Color(0xFFFFECEE),
-                shape: BoxShape.circle,
-              ),
-              child: const Icon(Icons.water_drop, color: Color(0xFFE8304A), size: 32),
-            ),
-            const SizedBox(height: 12),
-            const Text(
-              'Send a blood donation request to this donor?',
-              textAlign: TextAlign.center,
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text('Cancel', style: TextStyle(color: Colors.grey.shade500)),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pop(context);
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Request sent successfully!'),
-                  backgroundColor: Color(0xFFE8304A),
-                ),
-              );
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: const Color(0xFFE8304A),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            ),
-            child: const Text('Send', style: TextStyle(color: Colors.white)),
           ),
         ],
       ),
@@ -551,6 +478,7 @@ class _DonorProfileScreenState extends State<DonorProfileScreen> {
           final selected = _currentNav == i;
           return Expanded(
             child: GestureDetector(
+              behavior: HitTestBehavior.opaque,   // ← fixes unreliable nav taps
               onTap: () => _navigateBottomNav(i),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

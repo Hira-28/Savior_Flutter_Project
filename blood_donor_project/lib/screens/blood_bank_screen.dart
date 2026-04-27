@@ -329,13 +329,13 @@ class BloodBankDetailScreen extends StatelessWidget {
           const SizedBox(height: 16),
           Row(
             children: [
-              const AvatarWidget(name: 'David Martin', size: 44),
+              const AvatarWidget(name: 'Tanjir Anik', size: 44),
               const SizedBox(width: 12),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('David Martin',
+                    const Text('Tanjir Anik',
                         style: TextStyle(fontWeight: FontWeight.w700, fontSize: 13)),
                     Row(
                       children: [
