@@ -12,10 +12,7 @@ A Full-Featured Mobile Blood Donation Application
 
 **BloodConnect** is a production-quality native mobile application built with **Flutter & Dart**, designed to bridge the critical gap between blood donors and seekers during medical emergencies. The app provides a centralized, fast, and intuitive mobile platform for donor discovery, real-time communication, blood bank information, and blood request management — all secured with **Firebase Authentication**.
 
-> Built as a Mini Lab Project for **CSE 416 — Mobile Application Development Lab**
-> Daffodil International University, Department of Computer Science and Engineering
 
----
 
 ## ✨ Features
 
