@@ -72,23 +72,32 @@ A Full-Featured Mobile Blood Donation Application
 
 ---
 
-
 ## 🏗️ Project Structure
+
 blood_donation_app/
 ├── lib/
-│   ├── main.dart                          # App entry point, MaterialApp & theme
+│   ├── main.dart                         # App entry point, MaterialApp & theme
+│   │
 │   ├── constants/
-│   │   └── app_constants.dart             # AppColors, blood types, mock data
+│   │   └── app_constants.dart           # Colors, blood types, mock data
+│   │
 │   ├── widgets/
-│   │   └── shared_widgets.dart            # Reusable UI components
+│   │   └── shared_widgets.dart          # Reusable custom widgets
+│   │
 │   └── screens/
-│       ├── home_screen.dart               # Home + Drawer + Bottom Nav
-│       ├── find_donor_screen.dart         # Donor list with blood type filter
-│       ├── blood_bank_screen.dart         # Blood bank list + detail view
-│       ├── blood_request_screen.dart      # Request list + Post A Request form
-│       ├── inbox_screen.dart              # Inbox list + Chat screen
-│       ├── notifications_screen.dart      # Notifications
-│       ├── profile_screen.dart            # User profile
-│       └── support_screen.dart            # Help & FAQ
-├── pubspec.yaml
-└── README.md
+│       ├── home_screen.dart            # Home screen + Drawer + Bottom Navigation
+│       ├── find_donor_screen.dart      # Donor list with blood group filter
+│       ├── blood_bank_screen.dart      # Blood bank list + details page
+│       ├── blood_request_screen.dart   # Blood request list + request form
+│       ├── inbox_screen.dart           # Inbox + Chat screen
+│       ├── notifications_screen.dart   # Notifications page
+│       ├── profile_screen.dart         # User profile & settings
+│       └── support_screen.dart         # Help center + FAQ
+│
+├── assets/
+│   ├── images/                         # App images, icons, avatars
+│   └── fonts/                          # Custom fonts (optional)
+│
+├── pubspec.yaml                        # Dependencies & assets config
+├── README.md                           # Project documentation
+└── .gitignore                          # Ignored files
